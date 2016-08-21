@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">   
+<!-- 作成者 : 李 珍瑞 -->
+<!-- 作成日付 : 2016.08.21 -->
+<struts>
+  <constant name="struts.i18n.encoding" value="UTF-8" />
+  <constant name="struts.devMode" value="true" />
+ <package name="board" extends="struts-default, json-default"> <!-- json데이터 사용할때 선언 잊지말것! -->
+ 	<!-- Error処理 -->
+<!--  	<global-results>
+		<result name="login">/index.jsp</result>
+		<result name="error">/WEB-INF/jsp/error.jsp</result>
+	</global-results>
+	<global-exception-mappings>
+		<exception-mapping result="login" exception="java.lang.Exception" />
+		<exception-mapping result="error" exception="java.lang.Exception" />
+	</global-exception-mappings> -->
+	
+		<!-- 회원가입 페이지 이동 -->
+ 		<action name="GoToSignUp" class="action.BoardAction" method="BoardListPage">
+			<result name="success">/WEB-INF/views/home.jsp</result>
+		</action>
+
+  	<!-- 休暇申請ヒストリーリスト -->
+    <action name="List" class="action.BoardAction" method="BoardList">
+       <interceptor-ref name="chain"/>
+	   <interceptor-ref name="params"/>
+	   <result name="success">/WEB-INF/views/home.jsp</result>
+    </action>
+
+
+
+
+		
+ </package>
+   
+</struts>
+
+

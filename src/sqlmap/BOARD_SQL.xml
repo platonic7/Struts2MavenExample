@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!-- 作成者 : 李 珍瑞 -->
+<!-- 作成日付 : 2016.08.21 -->
+<sqlMap>
+  <typeAlias alias="board" type="model.BoardVo"/>
+   <resultMap id="boardResult" class="board" >
+    <result property="id" column="id" columnIndex="1"/>
+    <result property="content" column="content" columnIndex="2"/>
+    <result property="count" column="count" columnIndex="3"/>
+    <result property="title" column="title" columnIndex="4"/>
+  </resultMap>  
+  
+  <select id="BoardList" parameterClass="java.util.Map" resultMap="boardResult">
+	  SELECT * FROM Board
+  </select>    
+  
+  <select id="GetIdOne" parameterClass="String" resultMap="boardResult">
+	  select * from Board 
+	  where id = #id#
+  </select>   
+
+</sqlMap>

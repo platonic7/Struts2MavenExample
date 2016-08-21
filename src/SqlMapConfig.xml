@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+"http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+	<properties resource="dbconnect.properties" />
+
+	<settings useStatementNamespaces="false" cacheModelsEnabled="true"
+		enhancementEnabled="true" lazyLoadingEnabled="true" maxRequests="32"
+		maxSessions="10" maxTransactions="5" />
+
+	<transactionManager type="JDBC">
+		<dataSource type="DBCP">
+			<property name="JDBC.Driver" value="${driver}" />
+			<property name="JDBC.ConnectionURL" value="${url}" />
+			<property name="JDBC.Username" value="${username}" />
+			<property name="JDBC.Password" value="${password}" />
+			<property name="JDBC.DefaultAutoCommit" value="true" />
+		</dataSource>
+	</transactionManager>
+
+	<sqlMap resource="sqlmap/BOARD_SQL.xml" />
+</sqlMapConfig>
